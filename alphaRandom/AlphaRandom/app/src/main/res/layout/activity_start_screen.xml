@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightGray"
+    tools:context="com.example.kooi.alpharandom.StartScreen">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="81dp"
+        android:fontFamily="serif-monospace"
+        android:text="Alpha Random"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/tagLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Let me decide it for you!"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/start"
+        style="@android:style/Widget.DeviceDefault.Button.Inset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Get Started"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:background="@drawable/shape"
+        android:padding="10dp"/>
+
+
+</android.widget.RelativeLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightGray"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.kooi.alpharandom.InitialSetup"
+    tools:showIn="@layout/activity_initial_setup">
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="386dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Alpha Random"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="32dp"
+        android:fontFamily="serif-monospace"
+        android:text="What are you having trouble deciding?"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/trouble"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/question"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="12dp"
+        android:layout_weight="0.00"
+        android:background="@drawable/shape"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="text"
+        android:textColor="@android:color/black"
+        android:textColorLink="@android:color/background_dark"
+        android:textCursorDrawable="@android:color/background_dark" />
+
+    <TextView
+        android:id="@+id/numberOfOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/trouble"
+        android:layout_marginTop="25dp"
+        android:fontFamily="serif-monospace"
+        android:text="How many options do you have?"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <NumberPicker
+        android:id="@+id/optionsPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/numberOfOptions"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="63dp" />
+
+
+</android.widget.RelativeLayout>

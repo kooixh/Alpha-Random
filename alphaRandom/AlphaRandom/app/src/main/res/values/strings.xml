@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Alpha Random</string>
+    <string name="title_activity_initial_setup">InitialSetup</string>
+</resources>
