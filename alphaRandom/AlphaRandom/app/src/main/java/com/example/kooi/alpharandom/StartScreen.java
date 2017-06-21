@@ -8,7 +8,9 @@ import android.widget.Button;
 
 public class StartScreen extends AppCompatActivity {
 
-    Button start;
+
+    //
+    private Button start;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

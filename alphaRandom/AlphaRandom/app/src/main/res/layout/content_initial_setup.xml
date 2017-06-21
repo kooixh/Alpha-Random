@@ -76,5 +76,18 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="63dp" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="21dp"
+        android:layout_toEndOf="@+id/trouble"
+        android:layout_toRightOf="@+id/trouble"
+        android:clickable="true"
+        android:visibility="invisible"
+        app:fabSize="normal"
+        app:srcCompat="@android:drawable/ic_menu_send" />
+
 
 </android.widget.RelativeLayout>

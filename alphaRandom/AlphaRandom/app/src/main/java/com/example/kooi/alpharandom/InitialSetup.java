@@ -1,5 +1,6 @@
 package com.example.kooi.alpharandom;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -7,6 +8,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.NumberPicker;
@@ -16,17 +19,68 @@ import android.widget.EditText;
 public class InitialSetup extends AppCompatActivity {
 
 
-    //reference to number picker
-    NumberPicker optionsPicker;
+    //reference to widgets
+    private NumberPicker optionsPicker;
+    private FloatingActionButton next;
+    private EditText trouble;
+
+    //fields
+    private String userTrouble;
+    private int totalOptions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial_setup);
 
         optionsPicker = (NumberPicker) findViewById(R.id.optionsPicker);
+        next = (FloatingActionButton) findViewById(R.id.next);
+        trouble = (EditText) findViewById(R.id.trouble);
+
+
         optionsPicker.setMinValue(1);
         optionsPicker.setMaxValue(99);
         setNumberPickerTextColor(optionsPicker,Color.BLACK);
+
+
+        //Action Listener to detect EditText changes and show button if not empty
+        trouble.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(charSequence.toString().trim().length()!=0){
+                    next.show();
+                }else{
+                    next.hide();
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+
+            }
+        });
+
+        //Action Listener for floating button
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userTrouble = trouble.getText().toString();
+                totalOptions = optionsPicker.getValue();
+
+                Intent i = new Intent(InitialSetup.this,OptionsScreen.class);
+                i.putExtra("totalOptions",totalOptions);
+                i.putExtra("userTrouble",userTrouble);
+
+                InitialSetup.this.startActivity(i);
+            }
+        });
 
 
     }

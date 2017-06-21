@@ -19,7 +19,11 @@
         <activity
             android:name=".InitialSetup"
             android:label="@string/title_activity_initial_setup"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".OptionsScreen" android:theme="@style/AppTheme"/>
+
+
+
     </application>
 
 </manifest>
