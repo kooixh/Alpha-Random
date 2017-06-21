@@ -100,7 +100,7 @@ public class InitialSetup extends AppCompatActivity {
         super.onRestart();
     }
 
-    public static boolean setNumberPickerTextColor(NumberPicker numberPicker, int color)
+    private static boolean setNumberPickerTextColor(NumberPicker numberPicker, int color)
     {
         final int count = numberPicker.getChildCount();
         for(int i = 0; i < count; i++){

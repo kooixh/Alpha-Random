@@ -9,7 +9,7 @@ import android.widget.Button;
 public class StartScreen extends AppCompatActivity {
 
 
-    //
+    //reference to the button
     private Button start;
 
     @Override

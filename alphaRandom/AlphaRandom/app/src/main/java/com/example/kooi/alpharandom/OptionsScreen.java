@@ -25,8 +25,8 @@ public class OptionsScreen extends AppCompatActivity {
 
         //intent that started activity
         Intent i = getIntent();
+        //get the extras (total number of options)
         Bundle b = i.getExtras();
-
         totalOptions = b.getInt("totalOptions");
         userTrouble = b.getString("userTrouble");
 
@@ -34,6 +34,8 @@ public class OptionsScreen extends AppCompatActivity {
         optionScroll = (ScrollView) findViewById(R.id.optionScroll);
         optionsLayout = (LinearLayout) findViewById(R.id.optionsLayout);
 
+
+        //add a editText view for each options
         for(int j =0;j<totalOptions;j++){
             EditText et = new EditText(this);
             et.setText("Option #"+(j+1));
@@ -42,5 +44,20 @@ public class OptionsScreen extends AppCompatActivity {
         }
 
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
