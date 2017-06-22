@@ -25,11 +25,6 @@ public class OptionsScreen extends AppCompatActivity {
     //List
     List<String> listOfOptions = new ArrayList<String>();
 
-    //Random class
-    Random<String> random;
-
-
-
 
     ScrollView optionScroll;
     LinearLayout optionsLayout;
@@ -81,7 +76,7 @@ public class OptionsScreen extends AppCompatActivity {
                     Log.d("Test ArrayList",s+" ");
                 }
 
-                RandomSelector rs = new RandomSelector();
+                RandomSelector rs = new RandomSelector(listOfOptions);
                 rs.show(getFragmentManager(),"Choose your Random");
 
             }
