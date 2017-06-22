@@ -14,7 +14,7 @@ public class EliminationRandom<E> implements Random<E> {
 
         //while there are more than one element
         while(list.size() != 1){
-            int index =(int) Math.floor(Math.random() * list.size()-1);
+            int index =(int) Math.floor(Math.random() * list.size());
             list.remove(index);
 
         }

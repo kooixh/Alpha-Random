@@ -12,7 +12,7 @@ public class TrueRandom<E> implements Random<E> {
     public E random(List<E> list){
 
         //random a number within range 0 to size of list-1
-        int index =(int) Math.floor(Math.random() * list.size()-1);
+        int index =(int) Math.floor(Math.random() * list.size());
 
         return list.get(index);
     }
