@@ -1,6 +1,7 @@
 package random;
 
 import android.os.Parcelable;
+import android.widget.TextView;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,6 +12,6 @@ import java.util.List;
 
 public interface Random<E> extends Serializable{
 
-    E random(List<E> list);
+    void random(List<E> list, TextView tv);
 
 }

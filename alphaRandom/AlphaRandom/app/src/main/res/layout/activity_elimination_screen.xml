@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kooi.alpharandom.EliminationScreen">
+
+    <TextView
+        android:id="@+id/optionEliminated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="129dp"
+        android:fontFamily="monospace"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="30sp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/isEliminated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="monospace"
+        android:text="is eliminated"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_below="@+id/optionEliminated"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/eliminate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/isEliminated"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/shape"
+        android:text="Eliminate!" />
+
+    <Button
+        android:id="@+id/viewResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/eliminate"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape"
+        android:padding="10dp"
+        android:text="View Result"
+        android:visibility="invisible" />
+</android.widget.RelativeLayout>

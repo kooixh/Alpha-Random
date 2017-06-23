@@ -64,7 +64,12 @@ public class RandomSelector extends DialogFragment {
             @Override
             public void onClick(View view) {
                 random = new TrueRandom();
-                openActivity();
+                Intent i = new Intent(getActivity(),ResultScreen.class);
+                i.putExtra("random",random);
+                i.putStringArrayListExtra("listOfOptions",(ArrayList<String>) listOfOptions);
+                //to check which activity launched the result screen
+                i.putExtra("launchedBy","selector");
+                startActivity(i);
             }
         });
 
@@ -73,19 +78,14 @@ public class RandomSelector extends DialogFragment {
             @Override
             public void onClick(View view) {
                 random = new EliminationRandom();
-                openActivity();
+                Intent i = new Intent(getActivity(),EliminationScreen.class);
+                i.putExtra("random",random);
+                i.putStringArrayListExtra("listOfOptions",(ArrayList<String>) listOfOptions);
+                startActivity(i);
             }
         });
 
         return view;
 
-    }
-
-    //method to open new Activity
-    private void openActivity(){
-        Intent i = new Intent(getActivity(),ResultScreen.class);
-        i.putExtra("random",random);
-        i.putStringArrayListExtra("listOfOptions",(ArrayList<String>) listOfOptions);
-        startActivity(i);
     }
 }

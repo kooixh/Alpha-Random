@@ -30,11 +30,6 @@ public class ResultScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_screen);
 
-        Intent i = getIntent();
-        Bundle b = i.getExtras();
-
-        random = (Random<String>) b.get("random");
-        listOfOptions = b.getStringArrayList("listOfOptions");
         randomButton = (Button) findViewById(R.id.randomButton);
         randomResult = (TextView) findViewById(R.id.randomResult);
         reset = (Button) findViewById(R.id.reset);
@@ -42,21 +37,44 @@ public class ResultScreen extends AppCompatActivity {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ResultScreen.this,StartScreen.class);
+                Intent i = new Intent(ResultScreen.this, StartScreen.class);
                 startActivity(i);
 
             }
         });
 
-        randomButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                randomResult.setText(random.random(listOfOptions));
-                randomResult.setVisibility(View.VISIBLE);
-                randomButton.setVisibility(View.INVISIBLE);
-                reset.setVisibility(View.VISIBLE);
-            }
-        });
+
+        Intent i = getIntent();
+        Bundle b = i.getExtras();
+
+        //get extras
+        random = (Random<String>) b.get("random");
+        listOfOptions = b.getStringArrayList("listOfOptions");
+
+        String launchedBy = b.getString("launchedBy");
+
+        //if activity is launched by selector dialog
+        if(launchedBy.equals("selector")) {
+
+            randomButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    random.random(listOfOptions, randomResult);
+                    randomResult.setVisibility(View.VISIBLE);
+                    randomButton.setVisibility(View.INVISIBLE);
+                    reset.setVisibility(View.VISIBLE);
+                }
+            });
+        }//if is launched by EliminationScreen
+        else if(launchedBy.equals("eliminationScreen")){
+            randomButton.setVisibility(View.INVISIBLE);
+            randomResult.setVisibility(View.VISIBLE);
+            randomResult.setText(listOfOptions.get(0));
+            reset.setVisibility(View.VISIBLE);
+
+
+
+        }
 
 
         

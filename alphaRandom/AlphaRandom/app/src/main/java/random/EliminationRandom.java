@@ -1,5 +1,11 @@
 package random;
 
+import android.util.Log;
+import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.TextView;
+
 import java.util.List;
 
 /**
@@ -9,17 +15,14 @@ import java.util.List;
 public class EliminationRandom<E> implements Random<E> {
 
 
-    public E random(List<E> list){
 
+    public void random(List<E> list,TextView tv){
 
-        //while there are more than one element
-        while(list.size() != 1){
-            int index =(int) Math.floor(Math.random() * list.size());
-            list.remove(index);
+        //get a random index
+        int index =(int) Math.floor(Math.random() * list.size());
+        tv.setText(list.get(index).toString()); //set the text
+        //remove the item at the index
+        list.remove(index);
 
-        }
-
-        //return the remaining element
-        return list.get(0);
     }
 }
