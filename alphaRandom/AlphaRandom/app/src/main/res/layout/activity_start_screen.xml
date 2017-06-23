@@ -11,19 +11,19 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="99dp"
         android:fontFamily="serif-monospace"
         android:text="Alpha Random"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="36sp" />
+        android:textSize="36sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/tagLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="Let me decide it for you!"
         android:textColor="@android:color/black"
         android:textSize="14sp"
@@ -44,6 +44,35 @@
         android:textSize="30sp"
         android:background="@drawable/shape"
         android:padding="10dp"/>
+
+    <Button
+        android:id="@+id/savedSession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/shape"
+        android:fontFamily="sans-serif-condensed"
+        android:padding="10dp"
+        android:text="Saved Sessions"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:layout_below="@+id/start"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/savedSession"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/shape"
+        android:fontFamily="sans-serif-condensed"
+        android:text="About"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
 
 
 </android.widget.RelativeLayout>
