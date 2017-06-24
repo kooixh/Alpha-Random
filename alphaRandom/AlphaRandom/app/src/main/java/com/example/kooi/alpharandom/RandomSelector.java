@@ -29,17 +29,28 @@ public class RandomSelector extends DialogFragment {
     Random random;
 
     //List passed
-    List<String> listOfOptions;
+    private List<String> listOfOptions;
 
     Button trueRandom;
     Button elimRandom;
     Button cancel;
 
 
-    public RandomSelector(List listOfOptions){
-        this.listOfOptions = listOfOptions;
+    public RandomSelector(){
+
     }
 
+    public static RandomSelector newInstance(List list){
+        RandomSelector rs = new RandomSelector();
+        rs.setList(list);
+
+        return rs;
+
+    }
+
+    private void setList(List list){
+        listOfOptions = list;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

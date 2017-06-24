@@ -14,11 +14,8 @@ public class StartScreen extends AppCompatActivity {
     //reference to the button
     private Button start;
     private Button about;
+    private Button saveButton;
 
-
-
-    PackageInfo pInfo;
-    String versionName;
 
 
     @Override
@@ -26,19 +23,10 @@ public class StartScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
 
-
-        try{
-            pInfo = getPackageManager().getPackageInfo(getPackageName(),0);
-        }catch (PackageManager.NameNotFoundException nnfe){
-
-        }
-
-        versionName = pInfo.versionName;
-
-
         //reference to button
         start = (Button) findViewById(R.id.start);
         about = (Button) findViewById(R.id.about);
+        saveButton = (Button) findViewById(R.id.saveButton);
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +41,14 @@ public class StartScreen extends AppCompatActivity {
             public void onClick(View view) {
                 AboutDialog ad = new AboutDialog();
                 ad.show(getFragmentManager(),"About");
+            }
+        });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(StartScreen.this,SaveScreen.class);
+                startActivity(i);
             }
         });
     }

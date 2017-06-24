@@ -71,7 +71,7 @@ public class OptionsScreen extends AppCompatActivity {
                     listOfOptions.add(s);
                 }
 
-                RandomSelector rs = new RandomSelector(listOfOptions);
+                RandomSelector rs = RandomSelector.newInstance(listOfOptions);
                 rs.show(getFragmentManager(),"Choose your Random");
 
             }
