@@ -71,11 +71,6 @@ public class OptionsScreen extends AppCompatActivity {
                     listOfOptions.add(s);
                 }
 
-
-                for(String s:listOfOptions){
-                    Log.d("Test ArrayList",s+" ");
-                }
-
                 RandomSelector rs = new RandomSelector(listOfOptions);
                 rs.show(getFragmentManager(),"Choose your Random");
 
