@@ -13,11 +13,6 @@ public class Configuration implements Serializable {
     //List containing saved sessions
     private List<Session> listOfSessions = new ArrayList<Session>();
 
-
-
-
-
-
     public List<Session> getListOfSessions() {
         return listOfSessions;
     }

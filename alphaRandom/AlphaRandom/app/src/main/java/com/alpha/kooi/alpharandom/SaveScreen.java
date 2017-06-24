@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -84,6 +85,17 @@ public class SaveScreen extends AppCompatActivity {
 
         listOfSaves = (ListView) findViewById(R.id.listOfSaves);
         listOfSavedSession = config.getListOfSessions();
+
+
+        listOfSaves.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                SaveActionDialog sad = SaveActionDialog.newInstance(config,(Session) listOfSaves.getItemAtPosition(i));
+                sad.show(getFragmentManager(),"Save Action Dialog");
+
+            }
+        });
 
 
         arrayAdapter = new ArrayAdapter<Session>(this,R.layout.save_row,listOfSavedSession);

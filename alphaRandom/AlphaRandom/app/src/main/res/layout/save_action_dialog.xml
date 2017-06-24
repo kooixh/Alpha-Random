@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_bg">
+
+    <TextView
+        android:id="@+id/sessionName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/useButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:text="Use this save"
+        android:textColor="@android:color/black"
+        android:padding="10dp"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/deleteSaveButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:text="Delete this save"
+        android:textColor="@android:color/black"
+        android:padding="10dp"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/dismissSaveAction"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:text="Cancel"
+        android:textColor="@android:color/black"
+        android:padding="10dp"
+        android:layout_margin="10dp"/>
+</LinearLayout>
