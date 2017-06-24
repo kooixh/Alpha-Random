@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightGray"
-    tools:context="com.example.kooi.alpharandom.StartScreen">
+    tools:context="com.alpha.kooi.alpharandom.StartScreen">
 
     <TextView
         android:id="@+id/title"

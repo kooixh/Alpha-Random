@@ -1,4 +1,4 @@
-package com.example.kooi.alpharandom;
+package com.alpha.kooi.alpharandom;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

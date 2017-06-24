@@ -1,8 +1,6 @@
-package com.example.kooi.alpharandom;
+package com.alpha.kooi.alpharandom;
 
 import android.app.DialogFragment;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,9 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
-
-import com.example.kooi.alpharandom.BuildConfig;
 
 /**
  * Created by Kooi on 24/06/2017.

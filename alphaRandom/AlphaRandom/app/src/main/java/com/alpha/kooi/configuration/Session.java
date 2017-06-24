@@ -1,4 +1,4 @@
-package com.example.kooi.configuration;
+package com.alpha.kooi.configuration;
 
 import java.io.Serializable;
 import java.util.List;

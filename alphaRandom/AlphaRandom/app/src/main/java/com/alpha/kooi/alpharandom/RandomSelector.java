@@ -1,4 +1,4 @@
-package com.example.kooi.alpharandom;
+package com.alpha.kooi.alpharandom;
 
 import android.app.DialogFragment;
 import android.content.Intent;
@@ -6,20 +6,19 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.kooi.configuration.Configuration;
+import com.alpha.kooi.configuration.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import random.EliminationRandom;
-import random.Random;
-import random.TrueRandom;
+import com.alpha.kooi.random.EliminationRandom;
+import com.alpha.kooi.random.Random;
+import com.alpha.kooi.random.TrueRandom;
 
 /**
  * Created by Kooi on 22/06/2017.
@@ -82,13 +81,13 @@ public class RandomSelector extends DialogFragment {
             }
         });
 
-        //user picked true random
+        //user picked true com.alpha.kooi.random
         trueRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 random = new TrueRandom();
                 Intent i = new Intent(getActivity(),ResultScreen.class);
-                i.putExtra("random",random);
+                i.putExtra("com/alpha/kooi/random",random);
                 i.putStringArrayListExtra("listOfOptions",(ArrayList<String>) listOfOptions);
                 i.putExtra("config",config);
                 //to check which activity launched the result screen
@@ -97,13 +96,13 @@ public class RandomSelector extends DialogFragment {
             }
         });
 
-        //user picked elimination random
+        //user picked elimination com.alpha.kooi.random
         elimRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 random = new EliminationRandom();
                 Intent i = new Intent(getActivity(),EliminationScreen.class);
-                i.putExtra("random",random);
+                i.putExtra("com/alpha/kooi/random",random);
                 i.putStringArrayListExtra("listOfOptions",(ArrayList<String>) listOfOptions);
                 startActivity(i);
             }

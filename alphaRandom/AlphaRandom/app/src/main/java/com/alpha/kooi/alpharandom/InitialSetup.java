@@ -1,13 +1,11 @@
-package com.example.kooi.alpharandom;
+package com.alpha.kooi.alpharandom;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -16,7 +14,7 @@ import android.widget.NumberPicker;
 import java.lang.reflect.*;
 import android.widget.EditText;
 
-import com.example.kooi.configuration.Configuration;
+import com.alpha.kooi.configuration.Configuration;
 
 public class InitialSetup extends AppCompatActivity {
 

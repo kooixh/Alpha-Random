@@ -1,20 +1,16 @@
-package com.example.kooi.alpharandom;
+package com.alpha.kooi.alpharandom;
 
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
-import com.example.kooi.configuration.Configuration;
-
-import random.*;
+import com.alpha.kooi.configuration.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;

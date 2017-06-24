@@ -1,9 +1,5 @@
-package random;
+package com.alpha.kooi.random;
 
-import android.util.Log;
-import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.widget.TextView;
 
 import java.util.List;
@@ -18,7 +14,7 @@ public class EliminationRandom<E> implements Random<E> {
 
     public void random(List<E> list,TextView tv){
 
-        //get a random index
+        //get a com.alpha.kooi.random index
         int index =(int) Math.floor(Math.random() * list.size());
         tv.setText(list.get(index).toString()); //set the text
         //remove the item at the index

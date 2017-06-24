@@ -1,4 +1,4 @@
-package com.example.kooi.alpharandom;
+package com.alpha.kooi.alpharandom;
 
 import org.junit.Test;
 

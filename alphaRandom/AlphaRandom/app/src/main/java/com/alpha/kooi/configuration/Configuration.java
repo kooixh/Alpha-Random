@@ -1,4 +1,4 @@
-package com.example.kooi.configuration;
+package com.alpha.kooi.configuration;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,15 +13,22 @@ public class Configuration implements Serializable {
     //List containing saved sessions
     private List<Session> listOfSessions = new ArrayList<Session>();
 
-    public Configuration(){
 
-    }
+
+
 
 
     public List<Session> getListOfSessions() {
         return listOfSessions;
     }
 
+
+    /**
+     * Method to clear the lsit of saved sessions
+     */
+    public void clear(){
+        listOfSessions.clear();
+    }
 
     /**
      * Method to add  session into the list of saved session

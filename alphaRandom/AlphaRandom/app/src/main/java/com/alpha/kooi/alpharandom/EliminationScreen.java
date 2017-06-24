@@ -1,4 +1,4 @@
-package com.example.kooi.alpharandom;
+package com.alpha.kooi.alpharandom;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import random.Random;
+import com.alpha.kooi.random.Random;
 
 public class EliminationScreen extends AppCompatActivity {
 
@@ -35,7 +35,7 @@ public class EliminationScreen extends AppCompatActivity {
         Intent i = getIntent();
         Bundle b = i.getExtras();
 
-        random = (Random<String>) b.get("random");
+        random = (Random<String>) b.get("com/alpha/kooi/random");
         listOfOptions = b.getStringArrayList("listOfOptions");
 
 
@@ -55,7 +55,7 @@ public class EliminationScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(EliminationScreen.this,ResultScreen.class);
-                i.putExtra("random",random);
+                i.putExtra("com/alpha/kooi/random",random);
                 i.putStringArrayListExtra("listOfOptions",(ArrayList<String>) listOfOptions);
                 //check which activity launched resultScreen
                 i.putExtra("launchedBy","eliminationScreen");

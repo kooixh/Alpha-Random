@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kooi.alpharandom">
+    package="com.alpha.kooi.alpharandom">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartScreen">
+        <activity android:name="com.alpha.kooi.alpharandom.StartScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,15 +17,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".InitialSetup"
+            android:name="com.alpha.kooi.alpharandom.InitialSetup"
             android:label="@string/title_activity_initial_setup"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".OptionsScreen"
+            android:name="com.alpha.kooi.alpharandom.OptionsScreen"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ResultScreen" />
-        <activity android:name=".EliminationScreen" />
-        <activity android:name=".SaveScreen"></activity>
+        <activity android:name="com.alpha.kooi.alpharandom.ResultScreen" />
+        <activity android:name="com.alpha.kooi.alpharandom.EliminationScreen" />
+        <activity android:name="com.alpha.kooi.alpharandom.SaveScreen"></activity>
 
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

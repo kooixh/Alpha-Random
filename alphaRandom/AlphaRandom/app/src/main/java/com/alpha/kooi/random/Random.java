@@ -1,6 +1,5 @@
-package random;
+package com.alpha.kooi.random;
 
-import android.os.Parcelable;
 import android.widget.TextView;
 
 import java.io.Serializable;

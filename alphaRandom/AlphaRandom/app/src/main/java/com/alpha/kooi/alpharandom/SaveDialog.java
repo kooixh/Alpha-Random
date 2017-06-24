@@ -1,4 +1,4 @@
-package com.example.kooi.alpharandom;
+package com.alpha.kooi.alpharandom;
 
 import android.app.DialogFragment;
 import android.content.Context;
@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.kooi.configuration.Configuration;
-import com.example.kooi.configuration.Session;
+import com.alpha.kooi.configuration.Configuration;
+import com.alpha.kooi.configuration.Session;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

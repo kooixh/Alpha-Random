@@ -1,17 +1,14 @@
-package com.example.kooi.alpharandom;
+package com.alpha.kooi.alpharandom;
 
 import android.content.Intent;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.kooi.configuration.Configuration;
-import com.example.kooi.configuration.Session;
+import com.alpha.kooi.configuration.Configuration;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -27,12 +24,7 @@ public class StartScreen extends AppCompatActivity {
     private Button saveButton;
 
 
-    final static String CONFIG_FILE_NAME = "config.dat";
-
-/*    final static File path = Environment.getExternalStoragePublicDirectory(
-    Environment.DIRECTORY_MOVIES);
-
-    final static File f = new File(path+"/"+"config.dat");*/
+    final static String CONFIG_FILE_NAME = "config.data";
     private Configuration config;
 
 

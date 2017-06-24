@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightGray"
-    tools:context="com.example.kooi.alpharandom.SaveScreen">
+    tools:context="com.alpha.kooi.alpharandom.SaveScreen">
 
     <TextView
         android:id="@+id/saveTitle"

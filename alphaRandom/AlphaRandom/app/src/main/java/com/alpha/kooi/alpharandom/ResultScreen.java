@@ -1,4 +1,4 @@
-package com.example.kooi.alpharandom;
+package com.alpha.kooi.alpharandom;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,18 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.kooi.configuration.Configuration;
+import com.alpha.kooi.configuration.Configuration;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.List;
 
-import random.Random;
+import com.alpha.kooi.random.Random;
 
 public class ResultScreen extends AppCompatActivity {
 
-    //random class passed
+    //com.alpha.kooi.random class passed
     private Random<String> random;
 
     //List Passed
@@ -67,7 +64,7 @@ public class ResultScreen extends AppCompatActivity {
         Bundle b = i.getExtras();
 
         //get extras
-        random = (Random<String>) b.get("random");
+        random = (Random<String>) b.get("com/alpha/kooi/random");
         listOfOptions = b.getStringArrayList("listOfOptions");
         config = (Configuration) b.get("config");
 
@@ -93,6 +90,9 @@ public class ResultScreen extends AppCompatActivity {
             });
         }//if is launched by EliminationScreen
         else if(launchedBy.equals("eliminationScreen")){
+
+
+
             randomButton.setVisibility(View.INVISIBLE);
             randomResult.setVisibility(View.VISIBLE);
             randomResult.setText(listOfOptions.get(0));
