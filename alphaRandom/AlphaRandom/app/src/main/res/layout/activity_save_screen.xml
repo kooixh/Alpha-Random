@@ -24,20 +24,24 @@
         android:id="@+id/clearAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/saveTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/shape"
         android:fontFamily="sans-serif-condensed"
         android:text="Clear"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_below="@+id/saveTitle"
+        android:layout_alignLeft="@+id/saveTitle"
+        android:layout_alignStart="@+id/saveTitle" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/clearAll"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp">
+        android:layout_marginTop="37dp"
+        android:id="@+id/scrollView2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,8 +53,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="532dp"
                 android:divider="@android:color/transparent"
-                android:dividerHeight="10dp"/>
+                android:dividerHeight="10dp" />
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Back"
+        android:textColor="@android:color/black"
+        android:layout_above="@+id/scrollView2"
+        android:layout_alignRight="@+id/saveTitle"
+        android:layout_alignEnd="@+id/saveTitle"
+        android:layout_marginRight="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_alignTop="@+id/clearAll" />
 
 </android.widget.RelativeLayout>

@@ -1,12 +1,22 @@
 package com.example.kooi.alpharandom;
 
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.kooi.configuration.Configuration;
+import com.example.kooi.configuration.Session;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class StartScreen extends AppCompatActivity {
 
@@ -17,11 +27,39 @@ public class StartScreen extends AppCompatActivity {
     private Button saveButton;
 
 
+    final static String CONFIG_FILE_NAME = "config.dat";
+
+/*    final static File path = Environment.getExternalStoragePublicDirectory(
+    Environment.DIRECTORY_MOVIES);
+
+    final static File f = new File(path+"/"+"config.dat");*/
+    private Configuration config;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
+
+        //read from config
+            try{
+                FileInputStream fis = openFileInput(CONFIG_FILE_NAME);
+                ObjectInputStream objectInputStream = new ObjectInputStream(fis);
+                config = (Configuration) objectInputStream.readObject();
+                objectInputStream.close();
+
+            }catch (IOException ioe){
+                Log.d("Error","Error reading configuration");
+
+            }catch (ClassNotFoundException cnfe){
+                Log.d("Error","Error reading configuration");
+            }
+
+            //Create a new config on the first run
+            if(config == null){
+                config = new Configuration();
+            }
 
         //reference to button
         start = (Button) findViewById(R.id.start);
@@ -32,6 +70,7 @@ public class StartScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent initialSetup = new Intent(StartScreen.this,InitialSetup.class);
+                initialSetup.putExtra("config",config);
                 StartScreen.this.startActivity(initialSetup);
             }
         });
@@ -48,6 +87,7 @@ public class StartScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(StartScreen.this,SaveScreen.class);
+                i.putExtra("config",config);
                 startActivity(i);
             }
         });
@@ -56,6 +96,15 @@ public class StartScreen extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(CONFIG_FILE_NAME));
+            out.writeObject(config);
+            out.close();
+
+        }catch (IOException fnfe){
+
+        }
     }
 
     @Override

@@ -6,10 +6,13 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.kooi.configuration.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,26 +29,35 @@ public class RandomSelector extends DialogFragment {
 
 
     //Random class
-    Random random;
+    private Random random;
 
     //List passed
     private List<String> listOfOptions;
+    private Configuration config;
 
-    Button trueRandom;
-    Button elimRandom;
-    Button cancel;
+
+
+    private Button trueRandom;
+    private Button elimRandom;
+    private Button cancel;
 
 
     public RandomSelector(){
 
     }
 
-    public static RandomSelector newInstance(List list){
+    public static RandomSelector newInstance(List list,Configuration config){
         RandomSelector rs = new RandomSelector();
         rs.setList(list);
+        rs.setConfig(config);
 
         return rs;
 
+    }
+
+
+    private void setConfig(Configuration config){
+        this.config = config;
     }
 
     private void setList(List list){
@@ -78,6 +90,7 @@ public class RandomSelector extends DialogFragment {
                 Intent i = new Intent(getActivity(),ResultScreen.class);
                 i.putExtra("random",random);
                 i.putStringArrayListExtra("listOfOptions",(ArrayList<String>) listOfOptions);
+                i.putExtra("config",config);
                 //to check which activity launched the result screen
                 i.putExtra("launchedBy","selector");
                 startActivity(i);

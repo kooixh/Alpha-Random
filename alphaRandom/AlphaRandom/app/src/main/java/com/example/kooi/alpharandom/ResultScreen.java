@@ -8,6 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.kooi.configuration.Configuration;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.List;
 
 import random.Random;
@@ -15,15 +20,19 @@ import random.Random;
 public class ResultScreen extends AppCompatActivity {
 
     //random class passed
-    Random<String> random;
+    private Random<String> random;
 
     //List Passed
-    List<String> listOfOptions;
+    private List<String> listOfOptions;
+
+    //Config file passed
+    private Configuration config;
 
     //widgets
-    Button randomButton;
-    TextView randomResult;
-    Button reset;
+    private Button randomButton;
+    private TextView randomResult;
+    private Button reset;
+    private Button saveThis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +42,7 @@ public class ResultScreen extends AppCompatActivity {
         randomButton = (Button) findViewById(R.id.randomButton);
         randomResult = (TextView) findViewById(R.id.randomResult);
         reset = (Button) findViewById(R.id.reset);
+        saveThis = (Button) findViewById(R.id.saveThis);
 
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,14 +54,30 @@ public class ResultScreen extends AppCompatActivity {
         });
 
 
+        saveThis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SaveDialog sd = SaveDialog.newInstance(config,listOfOptions);
+                sd.show(getFragmentManager(),"Save Session");
+            }
+        });
+
+
         Intent i = getIntent();
         Bundle b = i.getExtras();
 
         //get extras
         random = (Random<String>) b.get("random");
         listOfOptions = b.getStringArrayList("listOfOptions");
+        config = (Configuration) b.get("config");
 
         String launchedBy = b.getString("launchedBy");
+
+        if(config == null){
+            Log.d("Check null","Config is null");
+        }else {
+            Log.d("Check null","COnfig is not null");
+        }
 
         //if activity is launched by selector dialog
         if(launchedBy.equals("selector")) {
@@ -75,8 +101,24 @@ public class ResultScreen extends AppCompatActivity {
 
 
         }
-
-
-        
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+
+
 }

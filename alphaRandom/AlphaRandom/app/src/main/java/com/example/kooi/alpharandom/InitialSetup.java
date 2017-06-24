@@ -16,6 +16,8 @@ import android.widget.NumberPicker;
 import java.lang.reflect.*;
 import android.widget.EditText;
 
+import com.example.kooi.configuration.Configuration;
+
 public class InitialSetup extends AppCompatActivity {
 
 
@@ -27,6 +29,7 @@ public class InitialSetup extends AppCompatActivity {
     //fields
     private String userTrouble;
     private int totalOptions;
+    private Configuration config;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,13 @@ public class InitialSetup extends AppCompatActivity {
         optionsPicker = (NumberPicker) findViewById(R.id.optionsPicker);
         next = (FloatingActionButton) findViewById(R.id.next);
         trouble = (EditText) findViewById(R.id.trouble);
+
+        Intent i = getIntent();
+        Bundle b = i.getExtras();
+
+        config = (Configuration) b.get("config");
+
+
 
 
         optionsPicker.setMinValue(1);
@@ -77,6 +87,7 @@ public class InitialSetup extends AppCompatActivity {
                 Intent i = new Intent(InitialSetup.this,OptionsScreen.class);
                 i.putExtra("totalOptions",totalOptions);
                 i.putExtra("userTrouble",userTrouble);
+                i.putExtra("config",config);
 
                 InitialSetup.this.startActivity(i);
             }

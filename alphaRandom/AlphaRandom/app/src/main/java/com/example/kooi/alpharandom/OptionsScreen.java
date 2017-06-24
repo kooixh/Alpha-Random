@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.example.kooi.configuration.Configuration;
+
 import random.*;
 
 import java.util.ArrayList;
@@ -21,13 +24,14 @@ public class OptionsScreen extends AppCompatActivity {
     //fields from last activity
     private int totalOptions;
     private String userTrouble;
+    private Configuration config;
 
     //List
-    List<String> listOfOptions = new ArrayList<String>();
+    private List<String> listOfOptions = new ArrayList<String>();
 
 
-    ScrollView optionScroll;
-    LinearLayout optionsLayout;
+    private ScrollView optionScroll;
+    private LinearLayout optionsLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,7 @@ public class OptionsScreen extends AppCompatActivity {
         Bundle b = i.getExtras();
         totalOptions = b.getInt("totalOptions");
         userTrouble = b.getString("userTrouble");
+        config = (Configuration) b.get("config");
 
         //reference to scroll view
         optionScroll = (ScrollView) findViewById(R.id.optionScroll);
@@ -71,7 +76,7 @@ public class OptionsScreen extends AppCompatActivity {
                     listOfOptions.add(s);
                 }
 
-                RandomSelector rs = RandomSelector.newInstance(listOfOptions);
+                RandomSelector rs = RandomSelector.newInstance(listOfOptions,config);
                 rs.show(getFragmentManager(),"Choose your Random");
 
             }
