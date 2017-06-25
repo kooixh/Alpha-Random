@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -32,6 +33,8 @@ public class SaveActionDialog extends DialogFragment {
     private Session sessionReferenced;
 
 
+    private ArrayAdapter<Session> arrayAdapter;
+
 
     private Button useButton;
     private Button deleteSaveButton;
@@ -40,18 +43,19 @@ public class SaveActionDialog extends DialogFragment {
 
 
 
-    public static SaveActionDialog newInstance(Configuration config,Session sessionReferenced){
+    public static SaveActionDialog newInstance(Configuration config,Session sessionReferenced,ArrayAdapter arrayAdapter){
 
         SaveActionDialog sad = new SaveActionDialog();
-        sad.setFields(config,sessionReferenced);
+        sad.setFields(config,sessionReferenced,arrayAdapter);
         return sad;
     }
 
 
-    private void setFields(Configuration config,Session sessionReferenced){
+    private void setFields(Configuration config,Session sessionReferenced,ArrayAdapter arrayAdapter){
         //this.listOfOptions = listOfOptions;
         this.config = config;
         this.sessionReferenced = sessionReferenced;
+        this.arrayAdapter = arrayAdapter;
 
     }
 
@@ -76,7 +80,7 @@ public class SaveActionDialog extends DialogFragment {
         useButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RandomSelector rs = RandomSelector.newInstance(sessionReferenced.getLisOfOptions(),config);
+                RandomSelector rs = RandomSelector.newInstance(sessionReferenced.getLisOfOptions(),config,sessionReferenced.getUserTrouble());
                 rs.show(getFragmentManager(),"Random Selector");
             }
         });
@@ -97,12 +101,12 @@ public class SaveActionDialog extends DialogFragment {
                     ioe.printStackTrace();
                 }
 
+
+                //update the array adapter
+                arrayAdapter.notifyDataSetChanged();
+
                 //Dismiss the dialog
                 SaveActionDialog.this.dismiss();
-
-                //start a new activity
-                Intent i = new Intent(getActivity(),StartScreen.class);
-                startActivity(i);
 
             }
         });

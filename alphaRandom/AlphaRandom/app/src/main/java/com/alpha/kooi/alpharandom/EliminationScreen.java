@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+import com.alpha.kooi.configuration.Configuration;
 import com.alpha.kooi.random.Random;
 
 public class EliminationScreen extends AppCompatActivity {
@@ -24,8 +26,14 @@ public class EliminationScreen extends AppCompatActivity {
     //Random object
     private Random random;
 
+    private String userTrouble;
+
+    private Configuration config;
+
     //List of options
     private List<String> listOfOptions;
+
+    private List<String> listOfOptionsOriginal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +45,9 @@ public class EliminationScreen extends AppCompatActivity {
 
         random = (Random<String>) b.get("com/alpha/kooi/random");
         listOfOptions = b.getStringArrayList("listOfOptions");
+        listOfOptionsOriginal = new ArrayList<String>(listOfOptions);
+        config = (Configuration) b.get("config");
+        userTrouble = b.getString("userTrouble");
 
 
         optionEliminated = (TextView) findViewById(R.id.optionEliminated);
@@ -57,8 +68,11 @@ public class EliminationScreen extends AppCompatActivity {
                 Intent i = new Intent(EliminationScreen.this,ResultScreen.class);
                 i.putExtra("com/alpha/kooi/random",random);
                 i.putStringArrayListExtra("listOfOptions",(ArrayList<String>) listOfOptions);
+                i.putStringArrayListExtra("listOfOptionsOriginal",(ArrayList<String>)listOfOptionsOriginal);
                 //check which activity launched resultScreen
                 i.putExtra("launchedBy","eliminationScreen");
+                i.putExtra("config",config);
+                i.putExtra("userTrouble",userTrouble);
                 EliminationScreen.this.startActivity(i);
             }
         });

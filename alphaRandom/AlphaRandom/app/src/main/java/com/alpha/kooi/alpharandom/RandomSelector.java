@@ -35,6 +35,7 @@ public class RandomSelector extends DialogFragment {
     private Configuration config;
 
 
+    private String userTrouble;
 
     private Button trueRandom;
     private Button elimRandom;
@@ -45,23 +46,19 @@ public class RandomSelector extends DialogFragment {
 
     }
 
-    public static RandomSelector newInstance(List list,Configuration config){
+    public static RandomSelector newInstance(List list,Configuration config,String userTrouble){
         RandomSelector rs = new RandomSelector();
-        rs.setList(list);
-        rs.setConfig(config);
-
+        rs.setFields(config,list,userTrouble);
         return rs;
 
     }
 
-
-    private void setConfig(Configuration config){
+    private void setFields(Configuration config,List list,String userTrouble){
         this.config = config;
+        this.userTrouble = userTrouble;
+        this.listOfOptions = list;
     }
 
-    private void setList(List list){
-        listOfOptions = list;
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -90,6 +87,7 @@ public class RandomSelector extends DialogFragment {
                 i.putExtra("com/alpha/kooi/random",random);
                 i.putStringArrayListExtra("listOfOptions",(ArrayList<String>) listOfOptions);
                 i.putExtra("config",config);
+                i.putExtra("userTrouble",userTrouble);
                 //to check which activity launched the result screen
                 i.putExtra("launchedBy","selector");
                 startActivity(i);
@@ -103,6 +101,8 @@ public class RandomSelector extends DialogFragment {
                 random = new EliminationRandom();
                 Intent i = new Intent(getActivity(),EliminationScreen.class);
                 i.putExtra("com/alpha/kooi/random",random);
+                i.putExtra("config",config);
+                i.putExtra("userTrouble",userTrouble);
                 i.putStringArrayListExtra("listOfOptions",(ArrayList<String>) listOfOptions);
                 startActivity(i);
             }

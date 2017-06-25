@@ -31,6 +31,7 @@ public class SaveDialog extends DialogFragment {
     //config file and list to be saved
     private Configuration config;
     private List<String> listOfOptions;
+    private String userTrouble;
 
     //widgets
     private EditText nameOfList;
@@ -38,16 +39,17 @@ public class SaveDialog extends DialogFragment {
     private Button cancelSave;
 
 
-    public static SaveDialog newInstance(Configuration config,List listOfOptions){
+    public static SaveDialog newInstance(Configuration config,List listOfOptions,String userTrouble){
         SaveDialog sd = new SaveDialog();
-        sd.setFields(config,listOfOptions);
+        sd.setFields(config,listOfOptions,userTrouble);
         return sd;
     }
 
 
-    private void setFields(Configuration config,List listOfOptions){
+    private void setFields(Configuration config,List listOfOptions,String userTrouble){
         this.config = config;
         this.listOfOptions = listOfOptions;
+        this.userTrouble = userTrouble;
     }
 
     @Nullable
@@ -72,7 +74,7 @@ public class SaveDialog extends DialogFragment {
         saveSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Session s = new Session(nameOfList.getText().toString(),listOfOptions);
+                Session s = new Session(nameOfList.getText().toString(),listOfOptions,userTrouble);
                 config.addSession(s);
 
                 try{

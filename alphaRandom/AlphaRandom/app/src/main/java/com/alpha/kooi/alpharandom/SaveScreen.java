@@ -14,8 +14,10 @@ import android.widget.ListView;
 import com.alpha.kooi.configuration.Configuration;
 import com.alpha.kooi.configuration.Session;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
@@ -87,20 +89,25 @@ public class SaveScreen extends AppCompatActivity {
         listOfSavedSession = config.getListOfSessions();
 
 
+
+        arrayAdapter = new ArrayAdapter<Session>(this,R.layout.save_row,config.getListOfSessions());
+
+        listOfSaves.setAdapter(arrayAdapter);
+
+
+
+
         listOfSaves.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                SaveActionDialog sad = SaveActionDialog.newInstance(config, (Session) listOfSaves.getItemAtPosition(i),arrayAdapter);
+                sad.show(getFragmentManager(), "Save Action Dialog");
 
-                SaveActionDialog sad = SaveActionDialog.newInstance(config,(Session) listOfSaves.getItemAtPosition(i));
-                sad.show(getFragmentManager(),"Save Action Dialog");
+                listOfSaves.refreshDrawableState();
+
 
             }
         });
-
-
-        arrayAdapter = new ArrayAdapter<Session>(this,R.layout.save_row,listOfSavedSession);
-
-        listOfSaves.setAdapter(arrayAdapter);
 
 
     }

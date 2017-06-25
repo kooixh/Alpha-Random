@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -22,12 +24,15 @@ public class ResultScreen extends AppCompatActivity {
     //List Passed
     private List<String> listOfOptions;
 
+    private String userTrouble;
+
     //Config file passed
     private Configuration config;
 
     //widgets
     private Button randomButton;
     private TextView randomResult;
+    private TextView theUserTrouble;
     private Button reset;
     private Button saveThis;
 
@@ -40,6 +45,7 @@ public class ResultScreen extends AppCompatActivity {
         randomResult = (TextView) findViewById(R.id.randomResult);
         reset = (Button) findViewById(R.id.reset);
         saveThis = (Button) findViewById(R.id.saveThis);
+        theUserTrouble = (TextView) findViewById(R.id.theUserTrouble);
 
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,13 +57,6 @@ public class ResultScreen extends AppCompatActivity {
         });
 
 
-        saveThis.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SaveDialog sd = SaveDialog.newInstance(config,listOfOptions);
-                sd.show(getFragmentManager(),"Save Session");
-            }
-        });
 
 
         Intent i = getIntent();
@@ -67,14 +66,19 @@ public class ResultScreen extends AppCompatActivity {
         random = (Random<String>) b.get("com/alpha/kooi/random");
         listOfOptions = b.getStringArrayList("listOfOptions");
         config = (Configuration) b.get("config");
+        userTrouble = b.getString("userTrouble");
+
+
+        theUserTrouble.setText(userTrouble + " is:");
 
         String launchedBy = b.getString("launchedBy");
 
-        if(config == null){
-            Log.d("Check null","Config is null");
-        }else {
-            Log.d("Check null","COnfig is not null");
-        }
+        //Fade in and out animation
+        final Animation fadeIn = new AlphaAnimation(0.0f, 1.0f);
+        fadeIn.setDuration(3000);
+
+        final Animation fadeOut = new AlphaAnimation(1.0f, 0.0f);
+        fadeOut.setDuration(3000);
 
         //if activity is launched by selector dialog
         if(launchedBy.equals("selector")) {
@@ -82,10 +86,27 @@ public class ResultScreen extends AppCompatActivity {
             randomButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+
+                    //animation
+                    randomResult.startAnimation(fadeOut);
                     random.random(listOfOptions, randomResult);
+                    randomResult.startAnimation(fadeIn);
+
+
                     randomResult.setVisibility(View.VISIBLE);
                     randomButton.setVisibility(View.INVISIBLE);
                     reset.setVisibility(View.VISIBLE);
+                }
+            });
+
+
+
+            saveThis.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    SaveDialog sd = SaveDialog.newInstance(config,listOfOptions,userTrouble);
+                    sd.show(getFragmentManager(),"Save Session");
                 }
             });
         }//if is launched by EliminationScreen
@@ -95,8 +116,28 @@ public class ResultScreen extends AppCompatActivity {
 
             randomButton.setVisibility(View.INVISIBLE);
             randomResult.setVisibility(View.VISIBLE);
+
+            //animation
+            randomResult.startAnimation(fadeOut);
             randomResult.setText(listOfOptions.get(0));
+            randomResult.startAnimation(fadeIn);
+
+
+
             reset.setVisibility(View.VISIBLE);
+
+
+            final List<String> listOfOptionsOriginal = b.getStringArrayList("listOfOptionsOriginal");
+
+
+            saveThis.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    SaveDialog sd = SaveDialog.newInstance(config,listOfOptionsOriginal,userTrouble);
+                    sd.show(getFragmentManager(),"Save Session");
+                }
+            });
+
 
 
 

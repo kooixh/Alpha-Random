@@ -10,12 +10,14 @@ import java.util.List;
 public class Session implements Serializable{
 
     private String name;
+    private String userTrouble;
     private List<String> lisOfOptions;
 
 
-    public Session(String name,List lisOfOptions){
+    public Session(String name,List lisOfOptions,String userTrouble){
         this.name = name;
         this.lisOfOptions = lisOfOptions;
+        this.userTrouble = userTrouble;
     }
 
 
@@ -25,6 +27,10 @@ public class Session implements Serializable{
 
     public String getName(){
         return name;
+    }
+
+    public String getUserTrouble() {
+        return userTrouble;
     }
 
     @Override

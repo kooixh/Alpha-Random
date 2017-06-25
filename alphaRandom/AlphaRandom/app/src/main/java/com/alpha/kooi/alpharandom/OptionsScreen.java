@@ -51,7 +51,7 @@ public class OptionsScreen extends AppCompatActivity {
         for(int j =0;j<totalOptions;j++){
             EditText et = new EditText(this);
             et.setId(j);
-            et.setText("Option #"+(j+1));
+            et.setHint("Option #"+(j+1));
             et.setSingleLine(true);
             optionsLayout.addView(et);
         }
@@ -68,12 +68,29 @@ public class OptionsScreen extends AppCompatActivity {
                     EditText et = (EditText) findViewById(j);
                     //get the value of the editText
                     String s = et.getText().toString();
+
                     //add to the list
                     listOfOptions.add(s);
                 }
 
-                RandomSelector rs = RandomSelector.newInstance(listOfOptions,config);
-                rs.show(getFragmentManager(),"Choose your Random");
+
+                boolean containsEmpty = false;
+                for(String s :listOfOptions){
+                    if(s.isEmpty()){
+                        containsEmpty = true;
+
+                    }
+                }
+
+                if(containsEmpty){
+                    AlertDialog ad = new AlertDialog();
+                    ad.show(getFragmentManager(),"Alert Dialog");
+                    recreate();
+
+                }else{
+                    RandomSelector rs = RandomSelector.newInstance(listOfOptions,config,userTrouble);
+                    rs.show(getFragmentManager(),"Choose your Random");
+                }
 
             }
         });
