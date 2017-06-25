@@ -46,7 +46,7 @@ public class InitialSetup extends AppCompatActivity {
 
 
 
-        optionsPicker.setMinValue(1);
+        optionsPicker.setMinValue(2);
         optionsPicker.setMaxValue(99);
         setNumberPickerTextColor(optionsPicker,Color.BLACK);
 
