@@ -20,7 +20,18 @@ public class AlertDialog extends DialogFragment {
 
     private Button dismissAlert;
 
+    private OptionsScreen os;
 
+
+    public static AlertDialog newInstance(OptionsScreen os){
+        AlertDialog ad = new AlertDialog();
+        ad.setFields(os);
+        return ad;
+    }
+
+    private void setFields(OptionsScreen os){
+        this.os = os;
+    }
 
     @Nullable
     @Override
@@ -36,6 +47,9 @@ public class AlertDialog extends DialogFragment {
         dismissAlert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //close the dialog and recreate the activity
+                os.recreate();
                 AlertDialog.this.dismiss();
             }
         });

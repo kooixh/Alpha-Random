@@ -83,9 +83,8 @@ public class OptionsScreen extends AppCompatActivity {
                 }
 
                 if(containsEmpty){
-                    AlertDialog ad = new AlertDialog();
+                    AlertDialog ad = AlertDialog.newInstance(OptionsScreen.this);
                     ad.show(getFragmentManager(),"Alert Dialog");
-                    recreate();
 
                 }else{
                     RandomSelector rs = RandomSelector.newInstance(listOfOptions,config,userTrouble);
