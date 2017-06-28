@@ -76,7 +76,7 @@ public class OptionsScreen extends AppCompatActivity {
 
                 boolean containsEmpty = false;
                 for(String s :listOfOptions){
-                    if(s.isEmpty()){
+                    if(s.trim().length() == 0){
                         containsEmpty = true;
 
                     }
