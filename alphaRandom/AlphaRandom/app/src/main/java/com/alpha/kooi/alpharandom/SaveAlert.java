@@ -9,34 +9,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 /**
- * Created by Kooi on 24/06/2017.
+ * Created by Kooi on 29/06/2017.
  */
 
-public class AlertDialog extends DialogFragment {
-
-
-    private String message;
+public class SaveAlert extends DialogFragment {
 
 
     private Button dismissAlert;
-    private TextView alertTitle;
-
-    private OptionsScreen os;
 
 
-
-    @Nullable
-    @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
-        final View view = inflater.inflate(R.layout.alert_dialog,null);
+        final View view = inflater.inflate(R.layout.save_alert,null);
 
-        dismissAlert = view.findViewById(R.id.dismissAlert);
+        dismissAlert = view.findViewById(R.id.closeSaveAlert);
 
 
         dismissAlert.setOnClickListener(new View.OnClickListener() {
@@ -45,7 +35,7 @@ public class AlertDialog extends DialogFragment {
 
                 //close the dialog and recreate the activity
 
-                AlertDialog.this.dismiss();
+                SaveAlert.this.dismiss();
             }
         });
 

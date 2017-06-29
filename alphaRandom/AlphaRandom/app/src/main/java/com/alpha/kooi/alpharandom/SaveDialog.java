@@ -90,6 +90,10 @@ public class SaveDialog extends DialogFragment {
                     ioe.printStackTrace();
                 }
 
+
+                SaveAlert sa = new SaveAlert();
+                sa.show(getFragmentManager(),"Save Alert");
+
                 SaveDialog.this.dismiss();
             }
         });

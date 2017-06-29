@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/dialog_bg">
 
     <TextView
-        android:id="@+id/alertMessage"
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Please fill in all the options"
+        android:text="Session Saved"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@android:color/white"
-        android:textSize="30sp" />
+        android:textColor="@android:color/white" />
 
     <Button
-        android:id="@+id/dismissAlert"
+        android:id="@+id/closeSaveAlert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
         android:background="@drawable/shape"
-        android:text="Close" />
+        android:text="Close"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>

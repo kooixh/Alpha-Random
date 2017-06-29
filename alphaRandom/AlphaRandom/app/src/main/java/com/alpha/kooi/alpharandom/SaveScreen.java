@@ -42,32 +42,7 @@ public class SaveScreen extends AppCompatActivity {
         clearAll = (Button) findViewById(R.id.clearAll);
         back = (Button) findViewById(R.id.back);
 
-        clearAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                //clear the config file
-                config.clear();
-
-                //write file
-                try{
-                    FileOutputStream fos = openFileOutput(StartScreen.CONFIG_FILE_NAME, Context.MODE_PRIVATE);
-                    ObjectOutputStream out = new ObjectOutputStream(fos);
-                    out.writeObject(config);
-                    out.close();
-                    Log.d("Save status","Successfully saved file");
-
-                }catch (IOException ioe){
-
-                    Log.d("Save status","Unsuccessfully saved file");
-                    ioe.printStackTrace();
-                }
-
-
-                Intent i = new Intent(SaveScreen.this,StartScreen.class);
-                startActivity(i);
-            }
-        });
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +70,30 @@ public class SaveScreen extends AppCompatActivity {
         listOfSaves.setAdapter(arrayAdapter);
 
 
+        clearAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //clear the config file
+                config.clear();
+
+                //write file
+                try{
+                    FileOutputStream fos = openFileOutput(StartScreen.CONFIG_FILE_NAME, Context.MODE_PRIVATE);
+                    ObjectOutputStream out = new ObjectOutputStream(fos);
+                    out.writeObject(config);
+                    out.close();
+                    Log.d("Save status","Successfully saved file");
+
+                }catch (IOException ioe){
+
+                    Log.d("Save status","Unsuccessfully saved file");
+                    ioe.printStackTrace();
+                }
+
+                arrayAdapter.notifyDataSetChanged();
+            }
+        });
 
 
         listOfSaves.setOnItemClickListener(new AdapterView.OnItemClickListener() {
