@@ -22,9 +22,18 @@ public class AlertDialog extends DialogFragment {
 
 
     private Button dismissAlert;
-    private TextView alertTitle;
+    private TextView alertMessage;
 
-    private OptionsScreen os;
+    public static AlertDialog newInstance(String message){
+        AlertDialog ad = new AlertDialog();
+        ad.setMessage(message);
+        return ad;
+
+    }
+
+    private void setMessage(String message){
+        this.message = message;
+    }
 
 
 
@@ -37,6 +46,9 @@ public class AlertDialog extends DialogFragment {
         final View view = inflater.inflate(R.layout.alert_dialog,null);
 
         dismissAlert = view.findViewById(R.id.dismissAlert);
+        alertMessage = view.findViewById(R.id.alertMessage);
+
+        alertMessage.setText(message);
 
 
         dismissAlert.setOnClickListener(new View.OnClickListener() {

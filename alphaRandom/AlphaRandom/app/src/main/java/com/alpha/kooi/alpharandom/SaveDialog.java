@@ -91,7 +91,7 @@ public class SaveDialog extends DialogFragment {
                 }
 
 
-                SaveAlert sa = new SaveAlert();
+                AlertDialog sa = AlertDialog.newInstance("Session saved.");
                 sa.show(getFragmentManager(),"Save Alert");
 
                 SaveDialog.this.dismiss();

@@ -52,7 +52,6 @@ public class SaveActionDialog extends DialogFragment {
 
 
     private void setFields(Configuration config,Session sessionReferenced,ArrayAdapter arrayAdapter){
-        //this.listOfOptions = listOfOptions;
         this.config = config;
         this.sessionReferenced = sessionReferenced;
         this.arrayAdapter = arrayAdapter;

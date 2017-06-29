@@ -83,9 +83,9 @@ public class OptionsScreen extends AppCompatActivity {
                 }
 
                 if(containsEmpty){
-                    AlertDialog ad = new AlertDialog();
+                    AlertDialog ad = AlertDialog.newInstance("Please fill in all the options.");
                     ad.show(getFragmentManager(),"Alert Dialog");
-                    recreate();
+                    listOfOptions.clear();
 
 
                 }else{
